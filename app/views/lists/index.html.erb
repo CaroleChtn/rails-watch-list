@@ -1,0 +1,8 @@
+<h1>All lists below</h1>
+
+<ul>
+  <% @lists.each do |list| %>
+    <li><%= link_to list.name, list_path(list) %></li>
+  <% end %>
+</ul>
+<%# redirection vers la show du list id. j'itere sur lelement seul list dont list au singulier %>

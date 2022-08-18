@@ -1,0 +1,9 @@
+<h1>create a new comment</h1>
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.submit %>
+<% end %>
+
+<%# association c'est grace aux foreign keys %>
