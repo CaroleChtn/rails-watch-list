@@ -1,9 +1,17 @@
-<h1>create a new comment</h1>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Add a movie to your <%= @list.name %> list</h3>
 
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.submit %>
-<% end %>
+        <%= simple_form_for [@list, @bookmark] do |f| %>
+          <%= f.input :comment, placeholder: 'Enter a comment about the movie'%>
+          <%= f.association :movie, prompt: "Select a movie", input_html: { data: { controller: "select" }} %>
+          <%= f.submit class: 'btn btn-flat'%>
+        <% end %>
 
-<%# association c'est grace aux foreign keys %>
+        <%# association c'est grace aux foreign keys %>
+        </div>
+    </div>
+  </div>
+</div>

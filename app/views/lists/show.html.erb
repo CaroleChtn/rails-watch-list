@@ -6,12 +6,15 @@
 <%= bookmark.comment %>
 <%= bookmark.movie.title %>
 <%= bookmark.movie.overview %>
-<img scr='<%= movie.poster_url %>'>
+<img src='<%= bookmark.movie.poster_url%>'>
+
+<%= link_to "delete this bookmark", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{bookmark.movie.title} from your #{@list.name} list"} %>
+<%# redirection vers le delete de bookmark %>
 <li>
-
-
-
 <% end %>
 
-
 <%= link_to "add a comment", new_list_bookmark_path(@list) %>
+<%# redirection vers la new de bookmark (avec le form à remplir)%>
+
+<%= link_to "delete this list", list_path(@list), class: "btn btn-cancel", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
+<%# redirection vers la show de list %>

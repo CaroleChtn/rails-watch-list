@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+  before_action :set_bookmark, only: :destroy
   before_action :find_list, only: %i[new create]
 
   # Un utilisateur peut voir tous les bookmarks liés à une list id
@@ -26,6 +27,13 @@ class BookmarksController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  # redirect to la SHOW : on et @list le arobase car on n'est pas dans un itération donc faut appeler le @
+
+  def destroy
+    @bookmark.destroy
+    redirect_to list_path(@bookmark.list), status: :see_other
+  end
+  # il n'y a pas de SHOW de bookmark. C'est la même SHOW que pour list.
 
   private
 
@@ -35,5 +43,10 @@ class BookmarksController < ApplicationController
 
   def bookmark_params
     params.require(:bookmark).permit(:comment, :movie_id)
+  end
+  # on passe le paramètre :movie_id
+
+  def set_bookmark
+    @bookmark = Bookmark.find(params[:id])
   end
 end

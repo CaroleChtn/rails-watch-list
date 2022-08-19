@@ -1,5 +1,11 @@
-<h1>Create a new list</h1>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Create a new list</h3>
 
-<%= render "form", list: @list %>
-<%= link_to "create a new list", new_list_path(@lists) %>
-<%# redirection à la new %>
+        <%= render "form", list: @list %>
+      </div>
+    </div>
+  </div>
+</div>

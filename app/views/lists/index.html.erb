@@ -1,8 +1,19 @@
-<h1>All lists below</h1>
+
+<%# <%= link_to "Create a movie list", new_list_path, class: "btn btn-flat" %>
+<%# redirection à la NEW %>
 
 <ul>
   <% @lists.each do |list| %>
     <li><%= link_to list.name, list_path(list) %></li>
   <% end %>
 </ul>
-<%# redirection vers la show du list id. j'itere sur lelement seul list dont list au singulier %>
+<%# redirection vers la SHOW du list id. j'itere sur lelement seul list dont list au singulier %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>All your favorite movies</h1>
+    <p>Shared your comments on your favs</p>
+    <a <%= link_to "Create a movie list", new_list_path, class: "btn btn-flat" %>>Create a new list</a>
+    <%# <a class="btn btn-flat" href="#">Create a new list</a> %>
+  </div>
+</div>
